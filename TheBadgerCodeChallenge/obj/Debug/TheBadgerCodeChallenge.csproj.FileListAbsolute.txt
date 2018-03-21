@@ -1,0 +1,7 @@
+C:\Users\GOAT\Desktop\Code\TheBadgerCodeChallenge\TheBadgerCodeChallenge\obj\Debug\TheBadgerCodeChallenge.csprojResolveAssemblyReference.cache
+C:\Users\GOAT\Desktop\Code\TheBadgerCodeChallenge\TheBadgerCodeChallenge\obj\Debug\TheBadgerCodeChallenge.csproj.CoreCompileInputs.cache
+C:\Users\GOAT\Desktop\Code\TheBadgerCodeChallenge\TheBadgerCodeChallenge\bin\Debug\TheBadgerCodeChallenge.exe.config
+C:\Users\GOAT\Desktop\Code\TheBadgerCodeChallenge\TheBadgerCodeChallenge\bin\Debug\TheBadgerCodeChallenge.exe
+C:\Users\GOAT\Desktop\Code\TheBadgerCodeChallenge\TheBadgerCodeChallenge\bin\Debug\TheBadgerCodeChallenge.pdb
+C:\Users\GOAT\Desktop\Code\TheBadgerCodeChallenge\TheBadgerCodeChallenge\obj\Debug\TheBadgerCodeChallenge.exe
+C:\Users\GOAT\Desktop\Code\TheBadgerCodeChallenge\TheBadgerCodeChallenge\obj\Debug\TheBadgerCodeChallenge.pdb
