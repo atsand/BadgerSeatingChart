@@ -16,6 +16,7 @@ namespace TheBadgerCodeChallenge
 
         }
 
+        //Main controller.  Create rng seed, seat letters.  Get desired rows and print results.  Allow for multiple queries.
         public static void Start()
         {
             Random rng = new Random();
@@ -29,6 +30,7 @@ namespace TheBadgerCodeChallenge
             Again();
         }
 
+        //Get desired number of rows.  Return #of rows as int.
         public static int GetNumberOfRows()
         {
             Console.WriteLine("Please enter how many rows are available (1-50):");
@@ -36,13 +38,11 @@ namespace TheBadgerCodeChallenge
             {
                 return rows;
             }
-            else
-            {
-                Console.WriteLine("Input must be an integer between 1-50.");
-                return GetNumberOfRows();
-            }
+            Console.WriteLine("Input must be an integer between 1-50.");
+            return GetNumberOfRows();
         }
 
+        //Create a random list of already reserved seats based on number of rows desired.
         public static List<string> RandomReservedArray(string[] seatLetters, int rows, Random rng)
         {
             List<string> possibleSeats = new List<string>();
@@ -53,7 +53,7 @@ namespace TheBadgerCodeChallenge
             {
                 for (int i = 1; i <= rows; i++)
                 {
-                    possibleSeats.Add(string.Format("{0}{1}", letter, i));
+                    possibleSeats.Add($"{letter}{i}");
                 }
             }
             
@@ -73,6 +73,7 @@ namespace TheBadgerCodeChallenge
 
         }
 
+        //Check for three consecutive open seats within the same seating column.  Return # of possible locations as int.
         public static int CheckAvailableSeats(string[] seatLetters, List<string> reservedSeatsList, int numberOfRows)
         {
             int openSeatingOptions = 0;
@@ -82,7 +83,7 @@ namespace TheBadgerCodeChallenge
                 int consecutiveOpenSeats = 0;
                 for (int j = 0; j < 3; j++)
                 {
-                    if (!reservedSeatsList.Contains(string.Format("{0}{1}", seatLetters[j], i+1)))
+                    if (!reservedSeatsList.Contains($"{seatLetters[j]}{i + 1}"))
                     {
                         consecutiveOpenSeats++;
                         if (consecutiveOpenSeats==3)
@@ -100,7 +101,7 @@ namespace TheBadgerCodeChallenge
 
                 for (int j = 3; j < 7; j++)
                 {
-                    if (!reservedSeatsList.Contains(string.Format("{0}{1}", seatLetters[j], i+1)))
+                    if (!reservedSeatsList.Contains($"{seatLetters[j]}{i+1}"))
                     {
                         consecutiveOpenSeats++;
                         if (consecutiveOpenSeats == 3)
@@ -118,7 +119,7 @@ namespace TheBadgerCodeChallenge
 
                 for (int j = 7; j < 10; j++)
                 {
-                    if (!reservedSeatsList.Contains(string.Format("{0}{1}", seatLetters[j], i + 1)))
+                    if (!reservedSeatsList.Contains($"{seatLetters[j]}{i + 1}"))
                     {
                         consecutiveOpenSeats++;
                         if (consecutiveOpenSeats == 3)
@@ -136,6 +137,7 @@ namespace TheBadgerCodeChallenge
             return openSeatingOptions;
         }
 
+        //Print layout of seating (open and reserved) and shows number of possible seating areas.
         public static void PrintResults(string[] seatLetters, List<string> reservedSeatsList, int numberOfRows, int openSeatingOptions)
         {
             Console.WriteLine("\n     A   B   C       D   E   F   H       J   K   L");
@@ -146,7 +148,7 @@ namespace TheBadgerCodeChallenge
 
                 for (int j = 0; j < 3; j++)
                 {
-                    if (!reservedSeatsList.Contains(string.Format("{0}{1}", seatLetters[j], i + 1)))
+                    if (!reservedSeatsList.Contains($"{seatLetters[j]}{i + 1}"))
                     {
                         Console.Write("[ ] ");
                     }
@@ -160,7 +162,7 @@ namespace TheBadgerCodeChallenge
 
                 for (int j = 3; j < 7; j++)
                 {
-                    if (!reservedSeatsList.Contains(string.Format("{0}{1}", seatLetters[j], i + 1)))
+                    if (!reservedSeatsList.Contains($"{seatLetters[j]}{i + 1}"))
                     {
                         Console.Write("[ ] ");
                     }
@@ -174,7 +176,7 @@ namespace TheBadgerCodeChallenge
 
                 for (int j = 7; j < 10; j++)
                 {
-                    if (!reservedSeatsList.Contains(string.Format("{0}{1}", seatLetters[j], i + 1)))
+                    if (!reservedSeatsList.Contains($"{seatLetters[j]}{i + 1}"))
                     {
                         Console.Write("[ ] ");
                     }
@@ -186,11 +188,12 @@ namespace TheBadgerCodeChallenge
 
                 Console.WriteLine();
             }
-            Console.WriteLine("\n{0} possible seating option(s) available.", openSeatingOptions);
+            Console.WriteLine($"\n{openSeatingOptions} possible seating option(s) available.");
             Console.WriteLine("Refer to the chart above to see open seats.");
             Console.WriteLine("Those marked with an 'x' have been reserved.\n");
         }
 
+        //Asks user if they would like to query again with a new number of rows.
         public static void Again()
         {
             Console.WriteLine("Press 'Y' to search again or any other key to exit.");
