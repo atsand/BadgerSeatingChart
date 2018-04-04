@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TheBadgerCodeChallenge
 {
@@ -34,7 +31,7 @@ namespace TheBadgerCodeChallenge
         public static int GetNumberOfRows()
         {
             Console.WriteLine("Please enter how many rows are available (1-50):");
-            if (int.TryParse(Console.ReadLine(), out int rows) && rows>0 && rows<=50)
+            if (int.TryParse(Console.ReadLine(), out int rows) && rows > 0 && rows <= 50)
             {
                 return rows;
             }
@@ -56,7 +53,7 @@ namespace TheBadgerCodeChallenge
                     possibleSeats.Add($"{letter}{i}");
                 }
             }
-            
+
             while (reservedSeatsList.Count < filledSeats)
             {
                 int randomSeat = rng.Next(0, possibleSeats.Count);
@@ -86,7 +83,7 @@ namespace TheBadgerCodeChallenge
                     if (!reservedSeatsList.Contains($"{seatLetters[j]}{i + 1}"))
                     {
                         consecutiveOpenSeats++;
-                        if (consecutiveOpenSeats==3)
+                        if (consecutiveOpenSeats == 3)
                         {
                             openSeatingOptions++;
                         }
@@ -101,7 +98,7 @@ namespace TheBadgerCodeChallenge
 
                 for (int j = 3; j < 7; j++)
                 {
-                    if (!reservedSeatsList.Contains($"{seatLetters[j]}{i+1}"))
+                    if (!reservedSeatsList.Contains($"{seatLetters[j]}{i + 1}"))
                     {
                         consecutiveOpenSeats++;
                         if (consecutiveOpenSeats == 3)
@@ -144,7 +141,7 @@ namespace TheBadgerCodeChallenge
 
             for (int i = 0; i < numberOfRows; i++)
             {
-                Console.Write("{0, -2}  ", i+1);
+                Console.Write("{0, -2}  ", i + 1);
 
                 for (int j = 0; j < 3; j++)
                 {
@@ -199,16 +196,14 @@ namespace TheBadgerCodeChallenge
             Console.WriteLine("Press 'Y' to search again or any other key to exit.");
             ConsoleKeyInfo answer = Console.ReadKey();
 
-            if (answer.KeyChar=='y' || answer.KeyChar=='Y')
+            if (answer.KeyChar == 'y' || answer.KeyChar == 'Y')
             {
-                Console.WriteLine();
-                Console.WriteLine();
+                Console.WriteLine("\n");
                 Start();
             }
             else
             {
-                Console.WriteLine();
-                Console.WriteLine();
+                Console.WriteLine("\n");
                 Console.WriteLine("Goodbye!");
             }
         }
